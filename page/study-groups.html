@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Groups - Nex Alem</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { background: #f0f8ff; }
+        .sidebar, .main { background: #ffffff; }
+        .banner {font-size: 32px; font-weight: 900; color: #4B0082; text-transform: uppercase; text-align:center; margin: 12px 0;}
+        .group-card { border: 1px solid #ddd; border-radius: 8px; padding: 10px; margin: 8px 0; }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <h2>NEXALEM</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="grades.html">Grades</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="messages.html">Messages</a>
+    <a href="study-groups.html">Study Groups</a>
+    <a href="mental-health.html">Mental Health</a>
+    <a href="curriculum.html">Curriculum</a>
+</div>
+<div class="main">
+    <div class="banner">NEXALEM</div>
+    <div class="topbar"><h1>Study Groups</h1></div>
+    <div id="groups"></div>
+</div>
+<script>
+const groups = [
+    {name:'Math Elite', leader:'Finote Mussie', members:['Nahom','Nathanel','Amen','Eden']},
+    {name:'Science Circle', leader:'Meron', members:['Selam','Haile','Hanna']}
+];
+function renderGroups(){
+    const container=document.getElementById('groups');
+    container.innerHTML='';
+    groups.forEach(g=>{
+        const c=document.createElement('div');
+        c.className='group-card';
+        c.innerHTML=`<h3>${g.name}</h3><p>Leader: ${g.leader}</p><p>Members: ${g.members.join(', ')}</p>`;
+        container.appendChild(c);
+    });
+}
+function addGroup(){
+    groups.push({name:'New Habesha Study', leader:'Eden', members:['Finote','Nahom','Meron']});
+    if(groups.length>5) groups.shift();
+    renderGroups();
+}
+renderGroups();
+setInterval(addGroup,5000);
+</script>
+</body>
+</html>

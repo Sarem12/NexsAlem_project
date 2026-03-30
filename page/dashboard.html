@@ -1,34 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>NEX-ALEM DASHBOARD</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- Socket.IO -->
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+<title>Nex Alem Dashboard</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.timetable th,
+.timetable td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  text-align: center;
+}
+.timetable th {
+  background: #7b68ee;
+  color: #fff;
+}
+.timetable tr:nth-child(even) {
+  background: rgba(123, 104, 238, 0.1);
+}
+.timetable .break {
+  background: rgba(138, 43, 226, 0.15);
+  font-weight: bold;
+}
+</style>
+
 </head>
-<body onload="loadDashboard()">
 
-    <h1>NexAlem Dashboard</h1>
+<body>
 
-    <div id="student-cards"></div>
-    <canvas id="lineChart"></canvas>
-    <canvas id="pieChart"></canvas>
+<div class="sidebar">
 
-    <!-- JS Files -->
-    <script type="module" src="js/utils.js"></script>
-    <script type="module" src="js/chart.js"></script>
-    <script type="module" src="js/dashboard.js"></script>
-    <script type="module" src="js/realtime.js"></script>
-    <script type="module" src="js/student.js"></script>
-    <script type="module" src="js/timetable.js"></script>
-    <script type="module" src="js/mentalHealth.js"></script>
-    <script type="module" src="js/curriculum.js"></script>
-    <script type="module" src="js/login.js"></script>
+<h2>NEXALEM</h2>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="grades.html">Grades</a>
+<a href="timetable.html">Timetable</a>
+<a href="messages.html">Messages</a>
+<a href="study-groups.html">Study Groups</a>
+<a href="mental-health.html">Mental Health</a>
+<a href="curriculum.html">Curriculum</a>
+
+</div>
+
+
+<div class="main">
+
+<div class="topbar">
+
+<h1>Welcome, Finote Mussie</h1>
+
+<div class="profile">
+<img src="../images/finote.jpg">
+<span>Finote Mussie</span>
+</div>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+<h3>GPA</h3>
+<p>3.8</p>
+</div>
+
+<div class="card">
+<h3>Attendance</h3>
+<p>98%</p>
+</div>
+
+<div class="card">
+<h3>Messages</h3>
+<p>2 New</p>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="panel">
+
+<h3>Grades Overview</h3>
+
+<canvas id="gradeChart"></canvas>
+
+</div>
+
+
+<div class="panel">
+
+<h3>Study Group</h3>
+
+<ul>
+<li>Leader: Finote Mussie</li>
+<li>Nahom</li>
+<li>Nathanel</li>
+<li>Amen</li>
+<li>Eden</li>
+</ul>
+
+</div>
+
+
+<div class="panel">
+
+<h3>Mental Health</h3>
+
+<p>Stress Level: Low</p>
+
+</div>
+
+
+<div class="panel">
+
+<h3>Attendance Distribution</h3>
+
+<canvas id="attendanceChart"></canvas>
+
+</div>
+
+
+<div class="panel">
+
+<h3>Weekly Timetable</h3>
+
+<table class="timetable">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>08:00-08:45</td><td>Math<br><small>Mr. Bekele</small></td><td>Physics<br><small>Ms. Selam</small></td><td>Chemistry<br><small>Mr. Haile</small></td><td>English<br><small>Ms. Hanna</small></td><td>History<br><small>Mr. Tadesse</small></td></tr>
+    <tr class="break"><td>08:45-09:00</td><td colspan="5">Break 1</td></tr>
+    <tr><td>09:00-09:45</td><td>Biology<br><small>Ms. Meron</small></td><td>Math<br><small>Mr. Bekele</small></td><td>Physics<br><small>Ms. Selam</small></td><td>Chemistry<br><small>Mr. Haile</small></td><td>English<br><small>Ms. Hanna</small></td></tr>
+    <tr><td>09:45-10:30</td><td>History<br><small>Mr. Tadesse</small></td><td>Biology<br><small>Ms. Meron</small></td><td>Math<br><small>Mr. Bekele</small></td><td>Physics<br><small>Ms. Selam</small></td><td>Chemistry<br><small>Mr. Haile</small></td></tr>
+    <tr class="break"><td>10:30-10:45</td><td colspan="5">Break 2</td></tr>
+    <tr><td>10:45-11:30</td><td>English<br><small>Ms. Hanna</small></td><td>History<br><small>Mr. Tadesse</small></td><td>Biology<br><small>Ms. Meron</small></td><td>Math<br><small>Mr. Bekele</small></td><td>Physics<br><small>Ms. Selam</small></td></tr>
+    <tr><td>11:30-12:15</td><td>Chemistry<br><small>Mr. Haile</small></td><td>English<br><small>Ms. Hanna</small></td><td>History<br><small>Mr. Tadesse</small></td><td>Biology<br><small>Ms. Meron</small></td><td>Math<br><small>Mr. Bekele</small></td></tr>
+  </tbody>
+</table>
+
+</div>
+
+
+</div>
+
+</div>
+
+<script>
+
+    // Line chart for grades
+
+    const ctxLine = document.getElementById('gradeChart').getContext('2d');
+
+    const lineChart = new Chart(ctxLine, {
+
+        type: 'line',
+
+        data: {
+
+            labels: ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4'],
+
+            datasets: [{
+
+                label: 'GPA',
+
+                data: [3.5, 3.7, 3.6, 3.8],
+
+                borderColor: 'rgba(75, 192, 192, 1)',
+
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+
+                tension: 0.4,
+
+                fill: true
+
+            }]
+
+        },
+
+        options: {
+
+            animation: {
+
+                duration: 2000,
+
+                easing: 'easeInOutQuart'
+
+            },
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    display: true
+
+                }
+
+            }
+
+        }
+
+    });
+
+    // Pie chart for attendance
+
+    const ctxPie = document.getElementById('attendanceChart').getContext('2d');
+
+    const pieChart = new Chart(ctxPie, {
+
+        type: 'pie',
+
+        data: {
+
+            labels: ['Present', 'Absent', 'Late'],
+
+            datasets: [{
+
+                data: [85, 10, 5],
+
+                backgroundColor: [
+
+                    'rgba(54, 162, 235, 0.8)',
+
+                    'rgba(255, 99, 132, 0.8)',
+
+                    'rgba(255, 205, 86, 0.8)'
+
+                ],
+
+                borderWidth: 1
+
+            }]
+
+        },
+
+        options: {
+
+            animation: {
+
+                duration: 2000,
+
+                easing: 'easeInOutQuart'
+
+            },
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    position: 'bottom'
+
+                }
+
+            }
+
+        }
+
+    });
+
+</script>
+
 </body>
 </html>
-

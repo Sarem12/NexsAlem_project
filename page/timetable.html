@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timetable - Nex Alem</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { background: #f0f8ff; }
+        .sidebar { background: #ffffff; }
+        .main { background: #ffffff; }
+        .timetable { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .timetable th, .timetable td { border: 1px solid rgba(0,0,0,0.1); padding: 8px; text-align: center; }
+        .timetable th { background: #7b68ee; color: #fff; }
+        .timetable tr:nth-child(even) { background: rgba(123,104,238,0.1); }
+        .timetable .break { background: rgba(138,43,226,0.15); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>NEXALEM</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="grades.html">Grades</a>
+    <a href="timetable.html">Timetable</a>
+    <a>Messages</a>
+    <a>Study Groups</a>
+    <a>Mental Health</a>
+    <a>Curriculum</a>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <h1>Weekly Timetable</h1>
+        <div class="profile">
+            <img src="../images/finote.jpg">
+            <span>Finote Mussie</span>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>7 Periods + 2 Breaks</h3>
+        <table class="timetable">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>08:00-08:45</td><td>Math<br><small>Mr. Bekele</small></td><td>Physics<br><small>Ms. Selam</small></td><td>Chemistry<br><small>Mr. Haile</small></td><td>English<br><small>Ms. Hanna</small></td><td>History<br><small>Mr. Tadesse</small></td></tr>
+                <tr class="break"><td>08:45-09:00</td><td colspan="5">Break 1</td></tr>
+                <tr><td>09:00-09:45</td><td>Biology<br><small>Ms. Meron</small></td><td>Math<br><small>Mr. Bekele</small></td><td>Physics<br><small>Ms. Selam</small></td><td>Chemistry<br><small>Mr. Haile</small></td><td>English<br><small>Ms. Hanna</small></td></tr>
+                <tr><td>09:45-10:30</td><td>History<br><small>Mr. Tadesse</small></td><td>Biology<br><small>Ms. Meron</small></td><td>Math<br><small>Mr. Bekele</small></td><td>Physics<br><small>Ms. Selam</small></td><td>Chemistry<br><small>Mr. Haile</small></td></tr>
+                <tr class="break"><td>10:30-10:45</td><td colspan="5">Break 2</td></tr>
+                <tr><td>10:45-11:30</td><td>English<br><small>Ms. Hanna</small></td><td>History<br><small>Mr. Tadesse</small></td><td>Biology<br><small>Ms. Meron</small></td><td>Math<br><small>Mr. Bekele</small></td><td>Physics<br><small>Ms. Selam</small></td></tr>
+                <tr><td>11:30-12:15</td><td>Chemistry<br><small>Mr. Haile</small></td><td>English<br><small>Ms. Hanna</small></td><td>History<br><small>Mr. Tadesse</small></td><td>Biology<br><small>Ms. Meron</small></td><td>Math<br><small>Mr. Bekele</small></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

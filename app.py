@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, abort
 import mysql.connector
 
 app = Flask(__name__)
@@ -7,15 +7,49 @@ app = Flask(__name__)
 # Serve static files (JS, CSS)
 @app.route('/js/<path:filename>')
 def serve_js(filename):
-    return send_from_directory(os.path.join(app.root_path, 'js'), filename)
+    js_dir = os.path.join(app.root_path, 'js')
+    js_path = os.path.join(js_dir, filename)
+    if os.path.isfile(js_path):
+        return send_from_directory(js_dir, filename)
+    fallback_path = os.path.join(app.root_path, filename)
+    if os.path.isfile(fallback_path):
+        return send_from_directory(app.root_path, filename)
+    abort(404)
+
+@app.route('/page/js/<path:filename>')
+def serve_page_js(filename):
+    return serve_js(filename)
 
 @app.route('/style.css')
 def serve_css():
     return send_from_directory(app.root_path, 'style.css')
 
+@app.route('/css/<path:filename>')
+def serve_css_dir(filename):
+    css_file = os.path.join(app.root_path, filename)
+    if os.path.isfile(css_file):
+        return send_from_directory(app.root_path, filename)
+    abort(404)
+
+@app.route('/page/css/<path:filename>')
+def serve_page_css(filename):
+    return serve_css_dir(filename)
+
 @app.route('/chart.js')
 def serve_chartjs():
     return send_from_directory(app.root_path, 'chart.js')
+
+@app.route('/images/<path:filename>')
+def serve_images(filename):
+    image_dir = os.path.join(app.root_path, 'images')
+    image_path = os.path.join(image_dir, filename)
+    if os.path.isfile(image_path):
+        return send_from_directory(image_dir, filename)
+    abort(404)
+
+@app.route('/page/images/<path:filename>')
+def serve_page_images(filename):
+    return serve_images(filename)
 
 # Serve HTML pages
 @app.route('/')

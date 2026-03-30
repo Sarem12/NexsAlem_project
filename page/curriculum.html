@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Curriculum - Nex Alem</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { background: #f0f8ff; }
+        .sidebar, .main { background: #ffffff; }
+        .banner {font-size: 32px; font-weight: 900; color: #4B0082; text-transform: uppercase; text-align: center; margin: 12px 0;}
+        .curriculum-item { border: 1px solid #ddd; margin: 8px 0; padding: 10px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <h2>NEXALEM</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="grades.html">Grades</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="messages.html">Messages</a>
+    <a href="study-groups.html">Study Groups</a>
+    <a href="mental-health.html">Mental Health</a>
+    <a href="curriculum.html">Curriculum</a>
+</div>
+<div class="main">
+    <div class="banner">NEXALEM</div>
+    <div class="topbar"><h1>Curriculum</h1></div>
+    <div id="curriculumList"></div>
+</div>
+<script>
+const topics=[
+    {subject:'Math', units:['Algebra','Geometry','Calculus']},
+    {subject:'Science', units:['Physics','Chemistry','Biology']},
+    {subject:'Language', units:['English Literature','Grammar']}
+];
+function renderCurriculum(){
+    const out=document.getElementById('curriculumList');
+    out.innerHTML = topics.map(t => `<div class='curriculum-item'><h3>${t.subject}</h3><p>${t.units.join(', ')}</p></div>`).join('');
+}
+function updateCurriculum(){
+    topics[0].units.push('Statistics');
+    if(topics[0].units.length>5) topics[0].units.splice(1,1);
+    renderCurriculum();
+}
+renderCurriculum();
+setInterval(updateCurriculum,5000);
+</script>
+</body>
+</html>

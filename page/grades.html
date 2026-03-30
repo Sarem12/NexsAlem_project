@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grades - Nex Alem</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th, .table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+.table th {
+    background: #f2f2f2;
+    color: black;
+}
+.sidebar h2 {
+    writing-mode: horizontal-tb; /* landscape way */
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+<h2>NEXALEM</h2>
+<a href="dashboard.html">Dashboard</a>
+<a href="grades.html">Grades</a>
+<a>Timetable</a>
+<a>Messages</a>
+<a>Study Groups</a>
+<a>Mental Health</a>
+<a>Curriculum</a>
+</div>
+
+<div class="main">
+<div class="topbar">
+<h1>Grades</h1>
+<div class="profile">
+<img src="../images/finote.jpg">
+<span>Finote Mussie</span>
+</div>
+</div>
+
+<div class="grid">
+<div class="panel">
+<h3>Mark List</h3>
+<table class="table">
+<tr><th>Subject</th><th>Grade</th><th>Percentage</th></tr>
+<tr><td>Mathematics</td><td>A</td><td>95%</td></tr>
+<tr><td>Physics</td><td>B+</td><td>87%</td></tr>
+<tr><td>Chemistry</td><td>A-</td><td>92%</td></tr>
+<tr><td>English</td><td>B</td><td>85%</td></tr>
+<tr><td>History</td><td>A</td><td>98%</td></tr>
+</table>
+</div>
+
+<div class="panel">
+<h3>Attendance</h3>
+<p>Total Classes: 50</p>
+<p>Attended: 47</p>
+<p>Absent: 2</p>
+<p>Late: 1</p>
+<p>Attendance Rate: 94%</p>
+</div>
+
+<div class="panel">
+<h3>GPA Trend</h3>
+<canvas id="gpaChart"></canvas>
+</div>
+</div>
+</div>
+
+<script>
+const ctx = document.getElementById('gpaChart').getContext('2d');
+const gpaChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4'],
+        datasets: [{
+            label: 'GPA',
+            data: [3.5, 3.7, 3.6, 3.8],
+            borderColor: 'rgba(147, 112, 219, 1)', // purple
+            backgroundColor: 'rgba(147, 112, 219, 0.2)',
+            tension: 0.4,
+            fill: true
+        }]
+    },
+    options: {
+        animation: {
+            duration: 2000,
+            easing: 'easeInOutQuart'
+        },
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html></content>
+<parameter name="filePath">c:\Users\Home\Downloads\nex_alem_advanced_system\frontend\grades.html

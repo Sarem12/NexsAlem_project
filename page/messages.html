@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messages - Nex Alem</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { background: #f0f8ff; }
+        .sidebar, .main { background: #ffffff; }
+        .topbar h1 { color: #4B0082; }
+        .banner {font-size: 32px; font-weight: 900; color: #4B0082; text-transform: uppercase; text-align:center; margin: 12px 0;}
+        .message-box { border: 1px solid #ddd; margin: 10px 0; padding: 10px; border-radius: 8px; }
+        .message-box h4 { margin:0; color:#4b0082; }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <h2>NEXALEM</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="grades.html">Grades</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="messages.html">Messages</a>
+    <a href="study-groups.html">Study Groups</a>
+    <a href="mental-health.html">Mental Health</a>
+    <a href="curriculum.html">Curriculum</a>
+</div>
+<div class="main">
+    <div class="banner">NEXALEM</div>
+    <div class="topbar"><h1>Messages</h1></div>
+    <div id="messageList"></div>
+</div>
+<script>
+const messages = [
+    {from:'Administration', text:'New exam schedule released.'},
+    {from:'Mr. Haile', text:'Physics assignment due next Wednesday.'},
+    {from:'Ms. Hanna', text:'English club meeting today after school.'}
+];
+function renderMessages() {
+    const container = document.getElementById('messageList');
+    container.innerHTML='';
+    messages.forEach(m=>{
+        const div = document.createElement('div');
+        div.className='message-box';
+        div.innerHTML=`<h4>${m.from}</h4><p>${m.text}</p>`;
+        container.appendChild(div);
+    });
+}
+function simulateNewMessage() {
+    const txt = ['Take a 5-minute walk.', 'Weekly quiz tomorrow in Science.', 'Submit your project before Friday.'];
+    const randomText = txt[Math.floor(Math.random()*txt.length)];
+    messages.unshift({from:'NEXALEM Bot', text:randomText});
+    if(messages.length>6) messages.pop();
+    renderMessages();
+}
+renderMessages();
+setInterval(simulateNewMessage, 5000);
+</script>
+</body>
+</html>

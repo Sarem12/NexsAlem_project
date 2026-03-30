@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <script src="/js/dashboard.js" defer></script>
+     <meta charset="UTF-8">
+     <title>NEXALEM</title>
+     <link rel="stylesheet" href="style.css">
+     
+        <meta name="viewport"
+    content="width=device-width",
+    initial-scale="1.0">
+        <title>NexAlem Dashboard</title>
+
+        <!--GOOGLE FONTS-->
+        <link
+    herf="https://fonts.googleapis.com/css2?family=poopins:wght@300;400;600&
+ display=swap" rel="stylesheet">
+
+    <!--icons-->
+    <link 
+herf="https://cdnjs,cloudflare.com/ajax/libs/font-awesom/6.5.0/css/all.min
+.css" ref="stylesheet">
+
+     <!-- MAIN CSS-->
+      <link rel="stylesheet"
+    herf="style.css">
+    <script
+    src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body>
+
+    <!-- SIDEBAR-->
+     <div class="sidebar">
+        <h2 class="logo" NEXALEM</h2>
+
+        <ul class="nav-links">
+            <li class="active"><a href="/page/dashboard.html">dashboard </a></li>
+                   <li><i class="fas
+                fa-chart-line"</li> grade</li>
+                         <li><i class="fas
+                fa calander"></i> timetable</li>
+                        <li><i class="fas
+                fa-envelope"></i>message</li>
+                         <li><i class="fas fa-users"></i> 
+                            study group </li>
+                          <li><i class="fas fa-heart"></i>
+                         mental health </li>
+                          <li><i class="fas fa-book"></i>
+                        curriculum</li>
+                          <li><i class=" fas fa-cog"></i>
+                        admin panel</li>
+                </ul>
+            </div>
+
+            <!--MAIN CONTENT-->
+            <div class="main">
+
+                <!--TOP BAR-->
+                <div class="topbar">
+                    <h1> welcome Finote Mussie</h1>
+
+                    <div class="user">
+                        <img src="c:\Users\Home\Downloads\photo_5890763469030624681_y.jpg"
+                        alt="profile">
+                    <span>student</span>
+                    </div>
+                </div>
+                <!--Statscard-->
+                <div class="cards">
+                      
+                    <div class="card">
+                        <h3>GPA</h3>
+                        <h1>3.8</h1>
+                    </div>
+                    <div class="card">
+                        <h3> attendance</h3>
+                        <h1>98%</h1>
+                    </div>
+
+                    <div class="card">
+                        <h3> message</h3>
+                        <h1> 2 News</h1>
+                    </div>
+
+                </div>
+                <!--GRID CONTENT-->
+                <div class="grid">
+
+                    <!--GRID CONTENT-->
+                    <div class="box">
+                        
+                        <!--GRADES SECTION-->
+                        <div class="box">
+                            <h2> Grades overview</h2>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>subject</th>
+                                        <th>test</th>
+                                        <th>mid</th>
+                                        <th>final</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr>
+                                    <td>Math</td>
+                                    <td>96</td>
+                                    <td>95</td>
+                                    <td>97</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Biology</td>
+                                    <td>94</td>
+                                    <td>95</td>
+                                    <td>96</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Chemistry</td>
+                                    <td>93</td>
+                                    <td>94</td>
+                                    <td>95</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Physics</td>
+                                    <td>95</td>
+                                    <td>96</td>
+                                    <td>97</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    <!--TIMETABLE-->
+                    <div class="box">
+                        <h2>Timetable</h2>
+
+                    <ul>
+                        <li>math-8:00 AM</li>
+                        <li>Biology-10:00 AM</li>
+                        <li>Chemistry-1:00 PM</li>
+                        <li>Physics-3:00 PM</li>
+                    </ul>
+                 </div>
+
+                 <!--MESSAGES-->
+                 <div class="box">
+                    <h2> messages</h2>
+
+                    <div class="messages"
+                         <strong>Mr.Abel:</strong>
+                        <p>Dont Forget the biology quiz tommorow</p>
+                    </div>
+                 </div>
+                    
+                
+                <!--STUDY GROUP-->
+                <div class="box">
+                    <h2>study Groups</h2>
+
+                    <div class="Group">
+                        <p>Biology Masters</p>
+                        <button>Join</button>
+                    </div>
+                    <div class="group">
+                        <p>Math champions</p>
+                        <button>Join</button>
+                    </div>
+                </div>
+
+                <!--MENTAL HEALTH-->
+                <div class="box">
+                    <h2>mental health</h2>
+
+                    <p>stress level:<span class="low">low</span></p>
+                    <progress value="20" max="100"></progress>
+                </div>
+
+                <!--CURRICULUM->
+                <div class="box">
+                    <h2>curriculum library</h2>
+
+                    <div class="books">
+                        <div class="book">Biology<button>Download</button></div>
+                        <div class="book">chemistry<button>Download</button></div>
+                        <div clas="book">Physics<button>download</button></div>
+                    </div>
+                </div>
+
+                <!--ADMIN PANEL-->
+                <div class="box">
+                    <h2>admin panel</h2>
+
+                    <ul>
+                        <li>Manage Student</li>
+                        <li>Manage Teachers</li>
+                        <li>Upload Books</li>
+                        
+                        <div class="chart-box">
+                            <canvas id="linechart"></canvas>
+                        </div>
+
+                        <div class="chart-box">
+                            <canvas id="piechart"></canvas>
+                        </div>
+                    </ul>
+                </div>
+
+                </div>
+
+            </div>
+
+        </ul>
+     </div>
+    </body>
+</html>

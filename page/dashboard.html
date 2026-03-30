@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEX-ALEM DASHBOARD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Socket.IO -->
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body onload="loadDashboard()">
+
+    <h1>NexAlem Dashboard</h1>
+
+    <div id="student-cards"></div>
+    <canvas id="lineChart"></canvas>
+    <canvas id="pieChart"></canvas>
+
+    <!-- JS Files -->
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/chart.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="js/realtime.js"></script>
+    <script type="module" src="js/student.js"></script>
+    <script type="module" src="js/timetable.js"></script>
+    <script type="module" src="js/mentalHealth.js"></script>
+    <script type="module" src="js/curriculum.js"></script>
+    <script type="module" src="js/login.js"></script>
+</body>
+</html>
+
